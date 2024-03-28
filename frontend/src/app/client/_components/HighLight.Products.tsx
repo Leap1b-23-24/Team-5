@@ -35,23 +35,18 @@ export const HighLightProducts = () => {
               justifyContent={"space-between"}
             >
               {products &&
-                products
-                  .filter((item) => {
-                    3 >= item?.rating?.starAverage ?? null;
-                  })
-                  .slice(0, 4)
-                  .map((item) => (
-                    <Grid item xs={3}>
-                      <Stack
-                        onClick={() => {
-                          router.push(`/client/products/${item._id}`);
-                          console.log(item._id);
-                        }}
-                      >
-                        <GeneralCard {...item} />
-                      </Stack>
-                    </Grid>
-                  ))}
+                products.slice(0, 4).map((item) => (
+                  <Grid item xs={3}>
+                    <Stack
+                      onClick={() => {
+                        router.push(`/client/products/${item._id}`);
+                        console.log(item._id);
+                      }}
+                    >
+                      <GeneralCard {...item} />
+                    </Stack>
+                  </Grid>
+                ))}
             </Grid>
           </Carousel>
         </Stack>
