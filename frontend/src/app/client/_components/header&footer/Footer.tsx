@@ -41,7 +41,6 @@ export function Footer() {
               </Typography>
               <Stack direction={"row"} alignItems={"center"}>
                 <TextField
-                  sx={{}}
                   variant="outlined"
                   placeholder="Имэйл хаяг"
                   type="search"
@@ -128,7 +127,7 @@ export function Footer() {
         </Container>
       </Stack>
       <Stack width={"100%"} bgcolor={"#E7E4F8"} py={3} px={1}>
-        <Container maxWidth={"xl"}>
+        <Container maxWidth={"lg"}>
           <Stack
             direction={"row"}
             alignItems={"center"}

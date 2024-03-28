@@ -38,14 +38,14 @@ export default function ProgressStep({ step }: { step: number }) {
             flexGrow={1}
             order={2}
             height={8}
-            sx={{ background: Number(step) > 2 ? "#121316" : "#eee" }}
+            sx={{ background: Number(step) > 2 ? "#FB2E86" : "#eee" }}
           />
 
           <Stack
             flexGrow={1}
             order={4}
             height={8}
-            sx={{ background: Number(step) > 3 ? "#121316" : "#eee" }}
+            sx={{ background: Number(step) > 3 ? "#FB2E86" : "#eee" }}
           />
         </Stack>
       </Stack>
@@ -71,7 +71,7 @@ const Node = (props: stepNodeType) => {
         borderRadius={"50%"}
         sx={{
           color: isActive ? "#fff" : "#000",
-          background: isActive ? "#121316" : "#eee",
+          background: isActive ? "#FB2E86" : "#eee",
         }}
       >
         {children}

@@ -8,6 +8,7 @@ import emailRouter from "./routers/reset.router";
 import productRouter from "./routers/product.router";
 import orderRouter from "./routers/order.router";
 import ratingRouter from "./routers/rating.router";
+import userRouter from "./routers/user.router";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/", categoryRouter);
 app.use("/", productRouter);
 app.use("/", orderRouter);
 app.use("/", ratingRouter);
+app.use("/", userRouter);
 
 // app.use(authMiddleware);
 

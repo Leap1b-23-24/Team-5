@@ -33,13 +33,22 @@ export const signUp: RequestHandler = async (req, res) => {
 export const signIn: RequestHandler = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await UserModel.findOne({ email, password });
+    const user = await UserModel.findOne({ email: email });
 
     if (!user) {
       return res.status(401).json({
         message: "Бүртгэлтэй хэрэглэгч олдсонгүй",
       });
     }
+
+    const userpassword = await UserModel.findOne({ password: password });
+
+    if (!userpassword) {
+      return res.status(401).json({
+        message: "Нууц үг буруу байна",
+      });
+    }
+
     const id = user._id;
     const token = jwt.sign({ id }, "secret-key");
 

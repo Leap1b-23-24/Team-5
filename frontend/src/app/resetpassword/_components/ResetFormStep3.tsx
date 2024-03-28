@@ -97,7 +97,7 @@ export const ResetFormStep3 = ({
           onClick={() => {
             formik.handleSubmit();
             if (index == 2) {
-              router.push("/signin");
+              router.push("/client");
             }
             setIndex(0);
           }}
@@ -106,12 +106,12 @@ export const ResetFormStep3 = ({
           sx={{
             justifyContent: "flex-end",
             py: "14.5px",
-            background: "#121316",
+            background: "#FB2E86",
             color: "white",
             gap: "8px",
             "&:hover": {
-              backgroundColor: "#393939",
-              color: "common.white",
+              backgroundColor: "#e5e5e5",
+              color: "#FB2E86",
             },
           }}
         >

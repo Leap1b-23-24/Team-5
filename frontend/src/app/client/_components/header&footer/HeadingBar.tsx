@@ -12,14 +12,18 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import React from "react";
+import React, { useState } from "react";
 import { NAVBAR_HEIGHT } from "@/constants";
 import { useRouter } from "next/navigation";
 import { ShoppingBasketOutlined } from "@mui/icons-material";
 import { useData } from "@/components/provider/DataProvider";
+import { useAuth } from "@/components/provider/AuthProvider";
+import { userParamsType } from "@/common/types";
 
 export const HeadingBar = () => {
-  const { addCart } = useData();
+  const { addCart, user } = useData();
+  const { isLoggedIn } = useAuth();
+  const { userName } = user;
   const router = useRouter();
   return (
     <Stack
@@ -74,11 +78,15 @@ export const HeadingBar = () => {
               gap={0.5}
               sx={{ cursor: "pointer" }}
               onClick={() => {
-                router.push("/signin");
+                if (isLoggedIn) {
+                  router.push("/client/profile");
+                } else {
+                  router.push("/signin");
+                }
               }}
             >
               <Typography fontSize={16} fontWeight={600}>
-                Нэвтрэх
+                {isLoggedIn ? userName : "Нэвтрэх"}
               </Typography>
               <PersonOutlineIcon sx={{ fontSize: "18px" }} />
             </Stack>

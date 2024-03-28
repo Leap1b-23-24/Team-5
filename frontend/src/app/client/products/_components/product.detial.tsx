@@ -7,7 +7,7 @@ import { FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState } from "react";
 
 export const Productdetial = (props: ProductParams) => {
-  const { productCount, setProductCount, addCart, setAddCart } = useData();
+  const { addCart, setAddCart, productCount, setProductCount } = useData();
   const [selectImg, setSelectImg] = useState(0);
   const {
     images,
@@ -117,7 +117,17 @@ export const Productdetial = (props: ProductParams) => {
             <Button
               sx={{ bgcolor: "none" }}
               onClick={() => {
-                if (addCart.length) {
+                let isShare = false;
+                const newAddCart = addCart.map((element) => {
+                  if (element.productId == props._id) {
+                    element.quantity += productCount;
+                    isShare = true;
+                    return element;
+                  } else {
+                    return element;
+                  }
+                });
+                if (!isShare) {
                   setAddCart([
                     ...addCart,
                     {
@@ -125,25 +135,14 @@ export const Productdetial = (props: ProductParams) => {
                       name: productName,
                       price: price ?? 0,
                       discount: discount ?? 0,
-                      quantity: quantity ?? 1,
+                      quantity: productCount,
                       thumbnailUrl: images[0],
                       color: productType.productColor[0],
                       merchantId: merchantId ?? "",
                     },
                   ]);
                 } else {
-                  setAddCart([
-                    {
-                      productId: props._id ?? "",
-                      name: productName,
-                      price: price ?? 0,
-                      discount: discount ?? 0,
-                      quantity: quantity ?? 1,
-                      thumbnailUrl: images[0],
-                      color: productType.productColor[0],
-                      merchantId: merchantId ?? "",
-                    },
-                  ]);
+                  setAddCart(newAddCart);
                 }
               }}
             >

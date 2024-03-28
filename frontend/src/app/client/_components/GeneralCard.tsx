@@ -10,18 +10,9 @@ import { useRouter } from "next/navigation";
 
 export const GeneralCard = (props: ProductParams) => {
   const router = useRouter();
-  const {
-    images,
-    productName,
-    price,
-    productType,
-    description,
-    rating,
-    discount,
-    merchantId,
-    quantity,
-    _id,
-  } = props;
+  const { productCount } = useData();
+  const { images, productName, price, productType, discount, merchantId, _id } =
+    props;
   const { addCart, setAddCart } = useData();
   const colors = productType.productColor;
 
@@ -92,7 +83,17 @@ export const GeneralCard = (props: ProductParams) => {
               sx={{ "&:hover": { bgcolor: "#FFFFFF" }, cursor: "pointer" }}
               onClick={(e) => {
                 e.stopPropagation();
-                if (addCart.length) {
+                let isShare = false;
+                const newAddCart = addCart.map((element) => {
+                  if (element.productId == props._id) {
+                    element.quantity += productCount;
+                    isShare = true;
+                    return element;
+                  } else {
+                    return element;
+                  }
+                });
+                if (!isShare) {
                   setAddCart([
                     ...addCart,
                     {
@@ -100,25 +101,14 @@ export const GeneralCard = (props: ProductParams) => {
                       name: productName,
                       price: price ?? 0,
                       discount: discount ?? 0,
-                      quantity: quantity ?? 1,
+                      quantity: productCount,
                       thumbnailUrl: images[0],
                       color: productType.productColor[0],
                       merchantId: merchantId ?? "",
                     },
                   ]);
                 } else {
-                  setAddCart([
-                    {
-                      productId: props._id ?? "",
-                      name: productName,
-                      price: price ?? 0,
-                      discount: discount ?? 0,
-                      quantity: quantity ?? 1,
-                      thumbnailUrl: images[0],
-                      color: productType.productColor[0],
-                      merchantId: merchantId ?? "",
-                    },
-                  ]);
+                  setAddCart(newAddCart);
                 }
                 router.push("/client/purchase/shoppingcart");
               }}

@@ -70,12 +70,12 @@ export const ResetFormStep1 = () => {
           sx={{
             justifyContent: "flex-end",
             py: "14.5px",
-            background: "#121316",
+            background: "#FB2E86",
             color: "white",
             gap: "8px",
             "&:hover": {
-              backgroundColor: "#393939",
-              color: "common.white",
+              backgroundColor: "#E5E5E5",
+              color: "#FB2E86",
             },
           }}
         >

@@ -42,6 +42,7 @@ export default function SignInForm() {
         email: values.email,
         password: values.password,
       });
+      router.push("client");
       setOpen(false);
     },
   });
@@ -84,7 +85,7 @@ export default function SignInForm() {
             onBlur={formik.handleBlur}
           />
           <Link href={"/resetpassword"}>
-            <Typography color={"#000"} fontSize={14} fontWeight={400}>
+            <Typography fontSize={14} fontWeight={400}>
               Нууц үг сэргээх
             </Typography>
           </Link>
@@ -101,12 +102,12 @@ export default function SignInForm() {
             sx={{
               justifyContent: "flex-end",
               py: "14.5px",
-              background: "#121316",
+              background: "#FB2E86",
               color: "white",
               gap: "8px",
               "&:hover": {
-                backgroundColor: "#393939",
-                color: "common.white",
+                backgroundColor: "#E5E5E5",
+                color: "#FB2E86",
               },
             }}
           >
@@ -184,7 +185,9 @@ export default function SignInForm() {
         <Stack direction={"row"} justifyContent={"center"} gap={1}>
           <Typography>Бүртгэлгүй юу?</Typography>
           <Link href={"/signup"}>
-            <Typography borderBottom={1}>Бүртгүүлэх</Typography>
+            <Typography color={"#551a8b"} borderBottom={"1px solid #551a8b"}>
+              Бүртгүүлэх
+            </Typography>
           </Link>
         </Stack>
       </Stack>

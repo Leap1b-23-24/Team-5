@@ -1,5 +1,5 @@
 import { ProductParams } from "@/components/provider/DataProvider";
-import { Avatar, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -42,30 +42,31 @@ export const BestSelledLine = (props: ProductParams & indexType) => {
         >
           <Stack
             width={"100%"}
-            border={"1px solid red"}
             height={"100%"}
             justifyContent={"center"}
             alignItems={"center"}
           >
             <Stack borderRadius={"50%"} overflow={"hidden"}>
-              <Image src={"/Chair.png"} alt="" width={25} height={25} />
+              <Image src={props.images[0]} alt="" width={25} height={25} />
             </Stack>
           </Stack>
           <Stack position="relative">
             <Stack
-              border={"1px solid blue"}
               position="absolute"
               top={0}
               left={0}
               width="100%"
               height="100%"
-              gap={1}
+              gap={0.5}
               justifyContent={"center"}
             >
               <Typography
-                whiteSpace="nowrap"
-                overflow="hidden"
+                maxWidth={180}
+                noWrap
                 textOverflow={"ellipsis"}
+                sx={{
+                  lineClamp: "1",
+                }}
                 fontSize={14}
                 fontWeight={600}
               >

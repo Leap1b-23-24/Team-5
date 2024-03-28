@@ -32,6 +32,7 @@ export default function SignUp() {
           height={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
+          mb={5}
         >
           {step === 1 && <SignUpForm setStep={setStep} />}
           {step === 2 && (
@@ -39,7 +40,7 @@ export default function SignUp() {
               width={"100%"}
               height={"100%"}
               alignItems={"center"}
-              gap={25}
+              gap={10}
               mt={5}
             >
               <ProgressStep step={step} />
@@ -51,7 +52,7 @@ export default function SignUp() {
               width={"100%"}
               height={"100%"}
               alignItems={"center"}
-              gap={25}
+              gap={10}
               mt={5}
             >
               <ProgressStep step={step} />
@@ -63,7 +64,7 @@ export default function SignUp() {
               width={"100%"}
               height={"100%"}
               alignItems={"center"}
-              gap={25}
+              gap={10}
               mt={5}
             >
               <ProgressStep step={step} />

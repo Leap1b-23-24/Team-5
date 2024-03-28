@@ -10,8 +10,9 @@ import Add from "@mui/icons-material/Add";
 import { Remove } from "@mui/icons-material";
 
 export const CartComponents = (props: cartProductType) => {
-  const { productCount, setProductCount, addCart, setAddCart } = useData();
+  const { setAddCart, addCart } = useData();
   const { numberFormatter } = useData();
+
   return (
     <Stack
       width={"100%"}

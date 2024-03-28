@@ -4,6 +4,7 @@ import Image from "next/image";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { useData } from "@/components/provider/DataProvider";
+import { generalCategoryType, subCategoryType } from "@/common/types";
 
 export const ProductScroll = () => {
   const { products, generalCategories, subCategories } = useData();
@@ -94,10 +95,23 @@ export const ProductScroll = () => {
                       width={50}
                       height={50}
                     >
-                      <Image src={"/Chair.png"} alt="" fill objectFit="cover" />
+                      <Image
+                        src={item.images[0]}
+                        alt=""
+                        fill
+                        objectFit="cover"
+                      />
                     </Stack>
                     <Stack>
-                      <Typography fontSize={18} fontWeight={800}>
+                      <Typography
+                        height={30}
+                        maxWidth={80}
+                        noWrap
+                        textOverflow={"ellipsis"}
+                        sx={{
+                          lineClamp: "1",
+                        }}
+                      >
                         {item.productName}
                       </Typography>
                       <Typography>{item.serialNumber}</Typography>
@@ -106,7 +120,7 @@ export const ProductScroll = () => {
                 </Grid>
 
                 <Grid xs={1.7} item>
-                  <Typography>{item.subCategoryId}</Typography>
+                  <Typography>{}</Typography>
                 </Grid>
 
                 <Grid xs={1.7} item>

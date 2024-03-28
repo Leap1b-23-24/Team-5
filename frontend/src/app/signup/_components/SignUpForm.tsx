@@ -145,12 +145,12 @@ export const SignUpForm = ({
             sx={{
               justifyContent: "flex-end",
               py: "14.5px",
-              background: "#121316",
+              background: "#FB2E86",
               color: "white",
               gap: "8px",
               "&:hover": {
-                backgroundColor: "#393939",
-                color: "common.white",
+                backgroundColor: "#E5E5E5",
+                color: "#FB2E86",
               },
             }}
           >
@@ -165,7 +165,9 @@ export const SignUpForm = ({
         <Stack direction={"row"} justifyContent={"center"} gap={1}>
           <Typography>Бүртгэлтэй юу?</Typography>
           <Link href={"/signin"}>
-            <Typography borderBottom={1}>Нэвтрэх</Typography>
+            <Typography color={"#551a8b"} borderBottom={"1px solid #551a8b"}>
+              Нэвтрэх
+            </Typography>
           </Link>
         </Stack>
       </Stack>

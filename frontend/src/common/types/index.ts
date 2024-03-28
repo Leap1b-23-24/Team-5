@@ -1,4 +1,6 @@
+import { type } from "os";
 import { PropsWithChildren } from "react";
+import { string } from "yup";
 
 export type saleItemType = {
   title: string;
@@ -10,30 +12,6 @@ export type stepNodeType = {
   title: string;
 } & PropsWithChildren;
 
-export type ProductParams = {
-  _id?: string;
-  productName: string;
-  generalCategoryId: string;
-  subCategoryId: string;
-  serialNumber: string;
-  rating?: {
-    ratedQty: number;
-    starAverage: number;
-  };
-  price: number | null;
-  remainQty: number | null;
-  images: string[];
-  discount: number | null;
-  description: string;
-  info: string;
-  productType: {
-    productColor: string[];
-    productSize: string[];
-  };
-  productTag: string[];
-  merchantId?: string;
-};
-
 export type cartProductType = {
   productId: string;
   name: string;
@@ -43,6 +21,12 @@ export type cartProductType = {
   thumbnailUrl: string;
   color: string;
   merchantId: string;
+};
+
+export type userParamsType = {
+  userName: string;
+  email: string;
+  phoneNumber: string;
 };
 
 export type generalCategoryType = {

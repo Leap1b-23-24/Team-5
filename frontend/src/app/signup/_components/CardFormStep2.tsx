@@ -132,11 +132,11 @@ export const CardFormStep2 = ({
             width: "fit-content",
             py: "8px",
             pr: "10px",
-            background: "#121316",
+            background: "#FB2E86",
             color: "white",
             "&:hover": {
-              backgroundColor: "#393939",
-              color: "common.white",
+              backgroundColor: "#E5E5E5",
+              color: "#FB2E86",
             },
             gap: "8px",
           }}

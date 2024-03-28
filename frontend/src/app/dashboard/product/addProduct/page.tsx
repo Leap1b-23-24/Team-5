@@ -12,7 +12,6 @@ import { BackTabs } from "@/components/Back.Tabs";
 import { useEffect, useState } from "react";
 import { AlertModal } from "../_components/Alert.Modal";
 import { useData } from "@/components/provider/DataProvider";
-import { CustomInput } from "@/components";
 
 const validationSchema = yup.object({
   productName: yup.string().required(),
@@ -30,7 +29,7 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [colors, setColors] = useState<string[]>([]);
   const [sizes, setSizes] = useState<string[]>([]);
-  const [images, setImages] = useState<string[]>(["", "", ""]);
+  const [images, setImages] = useState<string[]>([""]);
   const [tags, setTags] = useState<string[]>([]);
 
   const formik = useFormik({
@@ -72,8 +71,6 @@ export default function Home() {
   //   }, 4000);
   //   return () => clearInterval(interval);
   // }, []);
-
-  console.log(formik.values.generalCategoryId);
 
   return (
     <Stack gap={3} width={"100%"}>
@@ -120,7 +117,7 @@ export default function Home() {
         </Stack>
         <Stack gap={3} width={"50%"}>
           <ProductGeneralCategory
-            generalCategoryId={"generalCategoryId"}
+            generalCategoryName={"generalCategoryId"}
             generalCategoryValue={formik.values.generalCategoryId}
             generalCategoryError={
               (formik.touched.generalCategoryId &&
@@ -129,7 +126,7 @@ export default function Home() {
                 formik.values.generalCategoryId ==
                   formik.initialValues.generalCategoryId)
             }
-            subCategoryId={"subCategoryId"}
+            subCategoryName={"subCategoryId"}
             subCategoryValue={formik.values.subCategoryId}
             subCategoryError={
               (formik.touched.subCategoryId &&
