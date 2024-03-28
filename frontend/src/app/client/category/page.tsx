@@ -2,7 +2,7 @@
 import { ViewList, Window } from "@mui/icons-material";
 import { Box, Container, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { ListProducts } from "./_components/ProductsList";
+import { ListProducts } from "./_components/ListProducts";
 import { AllProducts } from "./_components/AllProducts";
 // import { HighLightProducts } from "../_components/HighLight.Products";
 

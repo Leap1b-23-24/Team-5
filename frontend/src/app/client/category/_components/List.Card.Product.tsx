@@ -63,7 +63,7 @@ import { useState } from "react";
 //   p: 2,
 //   borderRadius: "8px",
 // };
-export const ListProducts = (props: ProductParams) => {
+export const ListCardProducts = (props: ProductParams) => {
   const { images, productName, description, price, rating, productType } =
     props;
   const colors = productType.productColor;
